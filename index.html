@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app>
 	<head>
 
 		<meta name="viewport" content="width=device-width" />
@@ -11,45 +11,37 @@
 
 	</head>
 	<body>
-		<ul class="product-list three-col"></ul>
-
-		<script id="product" type="text/x-handlebars-template">
-			<li class="product{{#if offer}} with-offer{{/if}}{{#if hero}} product-hero{{/if}}{{#if info}} with-info{{/if}}">
+		<ul class="product-list three-col" ng-controller="ProductCtrl">
+			<li class="product" ng-repeat="product in products" ng-class="{'with-info': product.info, 'with-offer': product.offer, 'product-hero': product.hero}">
 				<a href="#">
-					{{#if hero}}
-						<div class="hero-image" {{#if image}}style="background-image: url('{{image}}');"{{/if}}>
-							<h2 class="hero-text"><span>{{hero}}</span></h2>
-							<button class="button call-to-action">Buy it nao!</button>
-						</div>
-					{{else}}
-						<img class="product-image" src="{{#if image}}{{image}}{{else}}http://placehold.it/300x300/999/CCC{{/if}}" alt="Image of {{name}}" />
-					{{/if}}
+					<div class="hero-image" style="background-image: url('{{product.image}}');" ng-if="product.hero">
+						<h2 class="hero-text"><span>{{product.hero}}</span></h2>
+						<button class="button call-to-action">Buy it nao!</button>
+					</div>
+					<img class="product-image" src="http://placehold.it/300x300/999/CCC" alt="Image of {{product.name}}" ng-if="!product.hero" />
 					<div class="detail">
-						<span class="price">&pound;{{price}}</span>
-						<h3 class="name">{{name}}</h3>
-						<p class="tagline">{{detail}}</p>
+						<span class="price">&pound;{{product.price}}</span>
+						<h3 class="name">{{product.name}}</h3>
+						<p class="tagline">{{product.detail}}</p>
 					</div>
-				</a>
-				{{#if info}}
-					<div class="info">
+					<div class="info" ng-if="product.info">
 						<div class="content">
-							{{info}}
+							{{product.info}}
 						</div>
 					</div>
-				{{/if}}
-				{{#if offer}}
-					<div class="offer">{{offer}}</div>
-				{{/if}}
-			
-		</script>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/handlebars.js"></script>
+					<span class="offer" ng-if="product.offer">{{product.offer}}</span>
+					
+		</ul>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
 		<script>
-			var products = [{
+			function ProductCtrl($scope) {
+				$scope.products = [{
 					name: "Hero Product",
 					detail: "Lorem ipsum dolor sit amet",
 					price: "99",
-					hero: "OMG This just came out today!"
+					hero: "OMG This just came out today!",
+					image: "http://placehold.it/940x300/999/CCC"
 				},{
 					name: "Product 1",
 					detail: "Lorem ipsum dolor sit amet",
@@ -79,16 +71,8 @@
 					price: "99",
 					info: "This is the latest and greatest product from Derp corp.",
 					offer: "info with offer"
-				}],
-				source = $('#product').html(),
-				template = Handlebars.compile(source),
-				html = "";
-			
-			products.forEach(function(product) {
-				html += template(product);
-			});
-
-			$('.product-list').html(html);
+				}];
+			}
 		</script>
 	</body>
 </html>

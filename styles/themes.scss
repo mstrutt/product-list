@@ -1,0 +1,26 @@
+html {
+	font-size: 16px;
+}
+
+.product {
+	.detail,
+	.info {
+		background: #CCC;
+		border-color: #CCC;
+	}
+
+	.offer {
+		font-weight: bold;
+		background: orange;
+	}
+
+	.hero-text {
+		padding: 0 .25rem;
+		line-height: 1.4;
+
+		span {
+			background: orange;
+			box-shadow: -.25rem 0 0 .25rem orange, .25rem 0 0 .25rem orange;
+		}
+	}
+}

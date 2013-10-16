@@ -1,0 +1,147 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  max-width: 960px;
+  margin: 0 auto; }
+
+.product-list {
+  padding: 0.5rem;
+  margin: 0; }
+
+.product {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  padding: 0.5rem;
+  /* Product with offer variant */
+  /* Product with info variant */
+  /* Hero product variant */ }
+  @media (min-width: 400px) {
+    .product {
+      width: 50%; } }
+  @media (min-width: 720px) {
+    .product {
+      width: 33.333%; } }
+  .product .product-image {
+    display: block;
+    width: 100%; }
+  .product .detail {
+    padding: 1rem;
+    overflow: hidden; }
+  .product .name,
+  .product .tagline {
+    margin: 0; }
+  .product .price {
+    float: right;
+    font-size: 2em; }
+  .product .offer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem; }
+  @media (min-width: 400px) {
+    .product.with-info .offer {
+      right: 50%; } }
+  @media (min-width: 400px) {
+    .product.with-info {
+      width: 100%;
+      padding-right: 50%; }
+      .product.with-info .detail {
+        margin-right: 0.5rem; }
+      .product.with-info .product-image {
+        padding-right: 0.5rem; } }
+  @media (min-width: 720px) {
+    .product.with-info {
+      width: 66.666%;
+      padding-right: 33.333%; } }
+  .product .info {
+    position: relative;
+    margin-top: 1rem; }
+    .product .info .content {
+      padding: 1rem; }
+    @media (min-width: 400px) {
+      .product .info {
+        position: absolute;
+        top: 0.5rem;
+        left: 50%;
+        right: 0.5rem;
+        display: inline-block;
+        margin: 0 0 0 0.5rem; }
+        .product .info:before {
+          content: "";
+          display: block;
+          margin-top: 100%; }
+        .product .info .content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0; } }
+    .product .info:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 0;
+      width: 0;
+      border: 0.75rem solid transparent;
+      margin-left: -0.75rem; }
+      @media (max-width: 399px) {
+        .product .info:after {
+          border-bottom-color: inherit;
+          top: -0.75rem;
+          left: 50%;
+          margin-top: -0.75rem; } }
+      @media (min-width: 400px) {
+        .product .info:after {
+          top: 50%;
+          left: -0.75rem;
+          margin-top: -0.75rem;
+          border-right-color: inherit; } }
+  .product.product-hero {
+    width: 100%;
+    font-size: 120%; }
+  .product .hero-text {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    margin: 0;
+    display: inline; }
+  .product .hero-image {
+    position: relative;
+    height: 0;
+    padding-top: 100%;
+    background: url(http://placehold.it/940x300/999/CCC) top right no-repeat;
+    background-size: cover; }
+    @media (min-width: 400px) {
+      .product .hero-image {
+        padding-top: 48.3871%; } }
+    @media (min-width: 720px) {
+      .product .hero-image {
+        padding-top: 31.91489%; } }
+    .product .hero-image .call-to-action {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem; }
+
+html {
+  font-size: 16px; }
+
+.product .detail,
+.product .info {
+  background: #CCC;
+  border-color: #CCC; }
+.product .offer {
+  font-weight: bold;
+  background: orange; }
+.product .hero-text {
+  padding: 0 .25rem;
+  line-height: 1.4; }
+  .product .hero-text span {
+    background: orange;
+    box-shadow: -.25rem 0 0 .25rem orange, .25rem 0 0 .25rem orange; }

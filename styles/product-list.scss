@@ -1,0 +1,174 @@
+$two-col-bp: 400px;
+$three-col-bp: 720px;
+$global-gutter: 1rem;
+
+.product-list {
+	padding: $global-gutter/2;
+	margin: 0;
+}
+
+.product { // this layout is assuming box-sizing: border-box; and no whitespace in HTML
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	padding: $global-gutter/2;
+
+	@media (min-width: $two-col-bp) {
+		width: 50%;
+	}
+
+	@media (min-width: $three-col-bp) {
+		width: 33.333%;
+	}
+
+	.product-image {
+		display: block;
+		width: 100%;
+	}
+
+	.detail {
+		padding: $global-gutter;
+		overflow: hidden;
+	}
+
+	.name,
+	.tagline {
+		margin: 0;
+	}
+
+	.price {
+		float: right;
+		font-size: 2em;
+	}
+
+	/* Product with offer variant */
+
+	.offer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: $global-gutter/2;
+	}
+
+	&.with-info .offer {
+		@media (min-width: $two-col-bp) {
+			right: 50%;
+		}
+	}
+
+	/* Product with info variant */
+
+	&.with-info {
+		@media (min-width: $two-col-bp) {
+			width: 100%;
+			padding-right: 50%;
+
+			.detail {
+				margin-right: $global-gutter/2;
+			}
+
+			.product-image {
+				padding-right: $global-gutter/2;
+			}
+		}
+
+		@media (min-width: $three-col-bp) {
+			width: 66.666%;
+			padding-right: 33.333%;
+		}
+	}
+
+	.info {
+		position: relative;
+		margin-top: $global-gutter;
+		.content {
+			padding: $global-gutter;
+		}
+
+		@media (min-width: $two-col-bp) {
+			position: absolute;
+			top: $global-gutter/2;
+			left: 50%;
+			right: $global-gutter/2;
+			display: inline-block;
+			margin: 0 0 0 $global-gutter/2;
+
+			&:before{ // ratio of 1:1
+				content: "";
+				display: block;
+				margin-top: 100%;
+			}
+			
+			.content {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+		}
+
+		&:after { // arrow general
+			content: "";
+			position: absolute;
+			display: block;
+			height: 0;
+			width: 0;
+			border: $global-gutter*(3/4) solid transparent;
+			margin-left: -$global-gutter*(3/4);
+
+			@media (max-width: ($two-col-bp - 1px)) { // arrow top
+				border-bottom-color: inherit; // relies on border colour (not width, just colour) being set on the parent in the theme
+				top: -$global-gutter*(3/4);
+				left: 50%;
+				margin-top: -$global-gutter*(3/4);
+			}
+
+			@media (min-width: $two-col-bp) { // arrow left
+				top: 50%;
+				left: -$global-gutter*(3/4);
+				margin-top: -$global-gutter*(3/4);
+				border-right-color: inherit;
+			}
+		}
+	}
+
+	/* Hero product variant */
+
+	&.product-hero {
+		width: 100%;
+		font-size: 120%;
+	}
+
+	.hero-text {
+		position: absolute;
+		top: $global-gutter;
+		left: $global-gutter;
+		right: $global-gutter;
+		margin: 0;
+		display: inline;
+	}
+
+	.hero-image {
+		position: relative;
+		height: 0;
+		padding-top: 100%;
+		background: url(http://placehold.it/940x300/999/CCC) top right no-repeat;
+		background-size: cover;
+
+		@media (min-width: $two-col-bp) {
+			padding-top: (300/620)*100%;
+		}
+
+		@media (min-width: $three-col-bp) {
+			padding-top: (300/940)*100%;
+		}
+
+		.call-to-action {
+			position: absolute;
+			bottom: .75*$global-gutter;
+			right: .75*$global-gutter;
+		}
+	}
+}

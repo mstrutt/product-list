@@ -1,0 +1,26 @@
+<li class="product{{#if offer}} with-offer{{/if}}{{#if hero}} product-hero{{/if}}{{#if info}} with-info{{/if}}">
+	<a href="#">
+		{{#if hero}}
+			<div class="hero-image" {{#if image}}style="background-image: url('{{image}}');"{{/if}}>
+				<h2 class="hero-text"><span>{{hero}}</span></h2>
+				<button class="button call-to-action">Buy it nao!</button>
+			</div>
+		{{else}}
+			<img class="product-image" src="{{#if image}}{{image}}{{else}}http://placehold.it/300x300/999/CCC{{/if}}" alt="Image of {{name}}" />
+		{{/if}}
+		<div class="detail">
+			<span class="price">&pound;{{price}}</span>
+			<h3 class="name">{{name}}</h3>
+			<p class="tagline">{{detail}}</p>
+		</div>
+	</a>
+	{{#if info}}
+		<div class="info">
+			<div class="content">
+				{{info}}
+			</div>
+		</div>
+	{{/if}}
+	{{#if offer}}
+		<div class="offer">{{offer}}</div>
+	{{/if}}

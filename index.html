@@ -14,11 +14,11 @@
 		<ul class="product-list three-col" ng-controller="ProductCtrl">
 			<li class="product" ng-repeat="product in products" ng-class="{'with-info': product.info, 'with-offer': product.offer, 'product-hero': product.hero}">
 				<a href="#">
-					<div class="hero-image" style="background-image: url('{{product.image}}');" ng-if="product.hero">
+					<div class="hero-image" ng-style="{'background-image': 'url('+product.image+')'}" ng-if="product.hero">
 						<h2 class="hero-text"><span>{{product.hero}}</span></h2>
 						<button class="button call-to-action">Buy it nao!</button>
 					</div>
-					<img class="product-image" src="http://placehold.it/300x300/999/CCC" alt="Image of {{product.name}}" ng-if="!product.hero" />
+					<img class="product-image" ng-src="{{product.image}}" alt="Image of {{product.name}}" ng-if="!product.hero" />
 					<div class="detail">
 						<span class="price">&pound;{{product.price}}</span>
 						<h3 class="name">{{product.name}}</h3>

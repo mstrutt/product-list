@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<ul class="product-list three-col" ng-controller="ProductCtrl">
-			<li class="product" ng-repeat="product in products" ng-class="{'with-info': product.info, 'with-offer': product.offer, 'product-hero': product.hero}">
+			<li class="product" ng-repeat="product in products" ng-class="{'product-with-info': product.info, 'product-with-offer': product.offer, 'product-hero': product.hero}">
 				<a href="#">
 					<div class="hero-image" ng-style="{'background-image': 'url('+product.image+')'}" ng-if="product.hero">
 						<h2 class="hero-text"><span>{{product.hero}}</span></h2>

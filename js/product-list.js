@@ -6,7 +6,3 @@ App.controller('ProductCtrl', function($scope, $http) {
 			$scope.products = res.data;                
 		});
 });
-
-/*function ProductCtrl($scope, $resource) {
-	$scope.products = $recource('products.json', {get: {method: 'JSONP'}});
-}*/

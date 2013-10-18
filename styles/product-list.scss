@@ -51,7 +51,7 @@ $global-gutter: 1rem;
 		padding: $global-gutter/2;
 	}
 
-	&.with-info .offer {
+	&.product-with-info .offer {
 		@media (min-width: $two-col-bp) {
 			right: 50%;
 		}
@@ -59,7 +59,7 @@ $global-gutter: 1rem;
 
 	/* Product with info variant */
 
-	&.with-info {
+	&.product-with-info {
 		@media (min-width: $two-col-bp) {
 			width: 100%;
 			padding-right: 50%;

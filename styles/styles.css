@@ -45,18 +45,18 @@ body {
     right: 0;
     padding: 0.5rem; }
   @media (min-width: 400px) {
-    .product.with-info .offer {
+    .product.product-with-info .offer {
       right: 50%; } }
   @media (min-width: 400px) {
-    .product.with-info {
+    .product.product-with-info {
       width: 100%;
       padding-right: 50%; }
-      .product.with-info .detail {
+      .product.product-with-info .detail {
         margin-right: 0.5rem; }
-      .product.with-info .product-image {
+      .product.product-with-info .product-image {
         padding-right: 0.5rem; } }
   @media (min-width: 720px) {
-    .product.with-info {
+    .product.product-with-info {
       width: 66.666%;
       padding-right: 33.333%; } }
   .product .info {
